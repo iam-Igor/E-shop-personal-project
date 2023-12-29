@@ -15,3 +15,14 @@
 .login-form-row {
   height: 44%;
 }
+
+/* home page  */
+
+.home-page-main-column {
+  height: 40vh;
+}
+
+.home-page-text {
+  text-shadow: rgba(62, 66, 66, 0.6) -11px 1px 9px;
+  color: white;
+}

@@ -20,7 +20,9 @@ const CustomNavbar = () => {
     <Navbar
       expand="md"
       className={
-        location.pathname === "/" ? "d-none" : "bg-body-tertiary shadow-bottom"
+        location.pathname === "/"
+          ? "d-none"
+          : "bg-body-tertiary shadow-bottom sticky-top"
       }
     >
       <Container fluid>
