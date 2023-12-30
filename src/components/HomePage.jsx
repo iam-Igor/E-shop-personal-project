@@ -1,5 +1,4 @@
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
-import { pexelsToken } from "../tokens/tokens";
 import { useEffect, useState } from "react";
 import SingleCard from "./SingleCard";
 import { useNavigate } from "react-router-dom";
