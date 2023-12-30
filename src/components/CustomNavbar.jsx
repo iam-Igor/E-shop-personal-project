@@ -25,17 +25,17 @@ const CustomNavbar = () => {
     <Navbar
       expand="md"
       className={
-        location.pathname === "/"
+        location.pathname === "/Login"
           ? "d-none"
           : "bg-body-tertiary shadow-bottom sticky-top"
       }
     >
       <Container fluid>
-        <Navbar.Brand onClick={() => navigator("/Home")}>My shop</Navbar.Brand>
+        <Navbar.Brand onClick={() => navigator("/")}>My shop</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link onClick={() => navigator("/Home")}>Home</Nav.Link>
+            <Nav.Link onClick={() => navigator("/")}>Home</Nav.Link>
             <Nav.Link href="#link">Promo</Nav.Link>
             <NavDropdown title="Categories" id="basic-nav-dropdown">
               <NavDropdown.Item
@@ -106,7 +106,7 @@ const CustomNavbar = () => {
                 <NavDropdown.Divider />
                 <Dropdown.Item
                   onClick={() => {
-                    navigator("/");
+                    navigator("/Login");
                   }}
                 >
                   <i className="bi bi-box-arrow-right me-1"></i>

@@ -12,8 +12,8 @@ function App() {
     <BrowserRouter>
       <CustomNavbar />
       <Routes>
-        <Route path="/" element={<LoginPage />} />
-        <Route path="/Home" element={<HomePage />} />
+        <Route path="Login" element={<LoginPage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/Product/:productId" element={<ProductDetails />} />
         <Route path="/Categories/:category" element={<Categories />} />
       </Routes>

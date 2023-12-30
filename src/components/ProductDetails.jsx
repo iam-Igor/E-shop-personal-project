@@ -81,7 +81,7 @@ const ProductDetails = () => {
               <Button
                 className="me-3 rounded-pill"
                 onClick={() => {
-                  navigator("/Home");
+                  navigator("/");
                 }}
               >
                 <i className="bi bi-house me-1"></i>
