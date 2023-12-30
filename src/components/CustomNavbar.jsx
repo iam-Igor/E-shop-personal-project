@@ -9,6 +9,7 @@ import {
   Button,
   Dropdown,
   DropdownToggle,
+  Badge,
 } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -42,47 +43,9 @@ const CustomNavbar = () => {
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Dropdown>
-            <Navbar.Brand
-              id="dropdown-basic"
-              as={DropdownToggle}
-              variant="outline-primary"
-            >
-              <img
-                src="https://i.pinimg.com/564x/ff/a0/9a/ffa09aec412db3f54deadf1b3781de2a.jpg"
-                width="30"
-                height="30"
-                className="d-inline-block align-top"
-                alt="user-img"
-              />
-            </Navbar.Brand>
-            <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">
-                <i className="bi bi-person-circle me-1"></i>
-                Account
-              </Dropdown.Item>
-              <Dropdown.Item href="#/action-2">
-                <i className="bi bi-bag-dash-fill me-1"></i>
-                Your orders
-              </Dropdown.Item>
-              <Dropdown.Item href="#/action-3">
-                <i className="bi bi-headset me-1"></i>
-                Assistance
-              </Dropdown.Item>
-              <NavDropdown.Divider />
-              <Dropdown.Item
-                onClick={() => {
-                  navigator("/");
-                }}
-              >
-                <i className="bi bi-box-arrow-right me-1"></i>
-                Logout
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-          <Form className="mt-3 mt-md-0">
+          <Form className="mt-3 mt-md-0 me-4">
             <Row>
-              <Col xs="8">
+              <Col xs="8" className="pe-0">
                 <Form.Control type="text" placeholder="Search" />
               </Col>
               <Col xs="2">
@@ -92,6 +55,51 @@ const CustomNavbar = () => {
               </Col>
             </Row>
           </Form>
+          <div className="d-flex flex-md-row mt-2 mt-md-0">
+            <Dropdown>
+              <Navbar.Brand
+                id="dropdown-basic"
+                as={DropdownToggle}
+                variant="outline-primary"
+              >
+                <img
+                  src="https://i.pinimg.com/564x/ff/a0/9a/ffa09aec412db3f54deadf1b3781de2a.jpg"
+                  width="30"
+                  height="30"
+                  className="d-inline-block align-top"
+                  alt="user-img"
+                />
+              </Navbar.Brand>
+              <Dropdown.Menu>
+                <Dropdown.Item href="#/action-1">
+                  <i className="bi bi-person-circle me-1"></i>
+                  Account
+                </Dropdown.Item>
+                <Dropdown.Item href="#/action-2">
+                  <i className="bi bi-bag-dash-fill me-1"></i>
+                  Your orders
+                </Dropdown.Item>
+                <Dropdown.Item href="#/action-3">
+                  <i className="bi bi-headset me-1"></i>
+                  Assistance
+                </Dropdown.Item>
+                <NavDropdown.Divider />
+                <Dropdown.Item
+                  onClick={() => {
+                    navigator("/");
+                  }}
+                >
+                  <i className="bi bi-box-arrow-right me-1"></i>
+                  Logout
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+            <Button variant="primary">
+              <i className="bi bi-cart-check me-1"></i>{" "}
+              <Badge bg="secondary">9</Badge>
+              <span className="visually-hidden">unread messages</span>
+            </Button>
+          </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>
