@@ -10,17 +10,15 @@ const SingleCard = ({ items }) => {
       {items.map((item, index) => {
         return (
           <Col key={item.id} className="col-6 col-md-3 my-3">
-            <Card
-              className="rounded-4 shadow-bottom  py-3"
-              onClick={() => {
-                navigator("/Product/" + item.id);
-              }}
-            >
+            <Card className="rounded-4 shadow-bottom  py-3">
               <div className="image-container">
                 <Card.Img
                   variant="top"
                   src={item.image}
                   className="product-image"
+                  onClick={() => {
+                    navigator("/Product/" + item.id);
+                  }}
                 />
               </div>
               <Card.Body style={{ height: "160px" }}>
