@@ -20,7 +20,11 @@ const HomePage = () => {
           throw new Error();
         }
       })
-      .then((products) => setProducts(products))
+      .then((products) => {
+        setTimeout(() => {
+          setProducts(products);
+        }, 500);
+      })
       .catch((err) => {
         console.log(err);
       });
@@ -106,7 +110,25 @@ const HomePage = () => {
         </Col>
       </Row>
       <Row className="mt-4">
-        {products ? <SingleCard items={products} /> : <Col></Col>}
+        <h1 className="text-center">Suggested products</h1>
+        {products ? (
+          <SingleCard items={products} />
+        ) : (
+          <Col className="col-12 d-flex align-items-center justify-content-center mt-5">
+            <div className="spinner">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </Col>
+        )}
       </Row>
     </Container>
   );

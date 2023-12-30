@@ -35,9 +35,20 @@ const CustomNavbar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link onClick={() => navigator("/")}>Home</Nav.Link>
+            <Nav.Link
+              onClick={() => navigator("/")}
+              className={location.pathname === "/" ? "fw-bold" : ""}
+            >
+              Home
+            </Nav.Link>
             <Nav.Link href="#link">Promo</Nav.Link>
-            <NavDropdown title="Categories" id="basic-nav-dropdown">
+            <NavDropdown
+              title="Categories"
+              id="basic-nav-dropdown"
+              className={
+                location.pathname.startsWith("/Categories/") ? "fw-bold" : ""
+              }
+            >
               <NavDropdown.Item
                 onClick={() => {
                   goTo("men's clothing");
