@@ -17,6 +17,10 @@ const CustomNavbar = () => {
   const location = useLocation();
   const navigator = useNavigate();
 
+  const goTo = (param) => {
+    navigator("/Categories/" + param);
+  };
+
   return (
     <Navbar
       expand="md"
@@ -27,18 +31,34 @@ const CustomNavbar = () => {
       }
     >
       <Container fluid>
-        <Navbar.Brand href="#home">My shop</Navbar.Brand>
+        <Navbar.Brand onClick={() => navigator("/Home")}>My shop</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link onClick={() => navigator("/Home")}>Home</Nav.Link>
             <Nav.Link href="#link">Promo</Nav.Link>
             <NavDropdown title="Categories" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Man</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Woman</NavDropdown.Item>
+              <NavDropdown.Item
+                onClick={() => {
+                  goTo("men's clothing");
+                }}
+              >
+                Man
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                onClick={() => {
+                  goTo("women's clothing");
+                }}
+              >
+                Woman
+              </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Kids</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
+              <NavDropdown.Item
+                onClick={() => {
+                  goTo("jewelery");
+                }}
+              >
                 Accessories
               </NavDropdown.Item>
             </NavDropdown>

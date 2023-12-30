@@ -2,9 +2,15 @@ import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import { pexelsToken } from "../tokens/tokens";
 import { useEffect, useState } from "react";
 import SingleCard from "./SingleCard";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
   const [products, setProducts] = useState(null);
+  const navigator = useNavigate();
+
+  const goTo = (param) => {
+    navigator("/Categories/" + param);
+  };
 
   const getSuggestedProducts = () => {
     fetch("https://fakestoreapi.com/products")
@@ -55,7 +61,11 @@ const HomePage = () => {
       </Row>
       <Row className="mt-4 justify-content-center flex-column flex-md-row">
         <Col className="col-md-3">
-          <Card>
+          <Card
+            onClick={() => {
+              goTo("women's clothing");
+            }}
+          >
             <Card.Img
               variant="top"
               src="https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -66,7 +76,11 @@ const HomePage = () => {
           </Card>
         </Col>
         <Col className="col-md-3 my-3 my-md-0">
-          <Card>
+          <Card
+            onClick={() => {
+              goTo("men's clothing");
+            }}
+          >
             <Card.Img
               variant="top"
               src="https://images.pexels.com/photos/842811/pexels-photo-842811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -77,7 +91,11 @@ const HomePage = () => {
           </Card>
         </Col>
         <Col className="col-md-3">
-          <Card>
+          <Card
+            onClick={() => {
+              goTo("jewelery");
+            }}
+          >
             <Card.Img
               variant="top"
               src="https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
