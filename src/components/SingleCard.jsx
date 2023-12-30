@@ -1,20 +1,16 @@
 import { useState } from "react";
 import { Card, Button, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const SingleCard = ({ items }) => {
-  const [selectedItem, setSelectedItem] = useState(null);
+  const navigator = useNavigate();
 
   return (
     <>
       {items.map((item, index) => {
-        const isItemSelected = selectedItem === item.id;
-
         return (
-          <Col
-            key={item.id}
-            className={`col-6 col-md-3 my-3 ${isItemSelected ? "flip" : ""}`}
-          >
-            <Card className="rounded-4">
+          <Col key={item.id} className="col-6 col-md-3 my-3">
+            <Card className="rounded-4 shadow-bottom">
               <div className="image-container">
                 <Card.Img
                   variant="top"
@@ -32,7 +28,7 @@ const SingleCard = ({ items }) => {
                 <Button
                   variant="outline-danger"
                   onClick={() => {
-                    setSelectedItem(isItemSelected ? null : item.id);
+                    navigator("/Product/" + item.id);
                   }}
                 >
                   Details
