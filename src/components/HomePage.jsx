@@ -1,7 +1,30 @@
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import { pexelsToken } from "../tokens/tokens";
+import { useEffect, useState } from "react";
+import SingleCard from "./SingleCard";
 
 const HomePage = () => {
+  const [products, setProducts] = useState(null);
+
+  const getSuggestedProducts = () => {
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error();
+        }
+      })
+      .then((products) => setProducts(products))
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    getSuggestedProducts();
+  }, []);
+
   return (
     <Container fluid>
       <Row>
@@ -64,6 +87,9 @@ const HomePage = () => {
             </Card.Body>
           </Card>
         </Col>
+      </Row>
+      <Row className="mt-4">
+        {products ? <SingleCard items={products} /> : <Col></Col>}
       </Row>
     </Container>
   );

@@ -1,0 +1,177 @@
+{
+  "products": [
+    {
+      "id": 51,
+      "name": "Striped Blouse",
+      "category": "Tops",
+      "price": 24.99,
+      "color": "White/Navy",
+      "sizes_available": ["XS", "S", "M"],
+      "image": "image_link.jpg"
+    },
+    {
+      "id": 52,
+      "name": "Casual Jumpsuit",
+      "category": "Jumpsuits",
+      "price": 45.99,
+      "color": "Black",
+      "sizes_available": ["S", "M", "L"],
+      "image": "image_link.jpg"
+    },
+    {
+      "id": 53,
+      "name": "Ruffled Midi Dress",
+      "category": "Dresses",
+      "price": 37.5,
+      "color": "Pink",
+      "sizes_available": ["M", "L", "XL"],
+      "image": "image_link.jpg"
+    },
+
+    {
+      "id": 70,
+      "name": "High-Waisted Trousers",
+      "category": "Pants",
+      "price": 32.99,
+      "color": "Gray",
+      "sizes_available": ["S", "M", "L"],
+      "image": "image_link.jpg"
+    },
+    {
+      "id": 50,
+      "name": "Printed Maxi Skirt",
+      "category": "Skirts",
+      "price": 29.99,
+      "color": "Green",
+      "sizes_available": ["S", "M", "L"],
+      "image": "image_link.jpg"
+    },
+    {
+      "id": 1,
+      "name": "Floral Summer Dress",
+      "category": "Dresses",
+      "price": 39.99,
+      "color": "Blue",
+      "sizes_available": ["S", "M", "L", "XL"],
+      "image": "image_link.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Winter Knit Sweater",
+      "category": "Sweaters",
+      "price": 49.99,
+      "color": "Red",
+      "sizes_available": ["M", "L", "XL"],
+      "image": "image_link.jpg"
+    },
+    {
+      "id": 71,
+      "name": "Sleeveless Crop Top",
+      "category": "Tops",
+      "price": 19.99,
+      "color": "Black",
+      "sizes_available": ["S", "M", "L"],
+      "image": "image_link.jpg"
+    },
+    {
+      "id": 72,
+      "name": "Printed Wrap Dress",
+      "category": "Dresses",
+      "price": 42.99,
+      "color": "Teal",
+      "sizes_available": ["M", "L"],
+      "image": "image_link.jpg"
+    },
+    {
+      "id": 73,
+      "name": "Denim Jacket",
+      "category": "Jackets",
+      "price": 54.5,
+      "color": "Blue",
+      "sizes_available": ["S", "L", "XL"],
+      "image": "image_link.jpg"
+    },
+    {
+      "id": 80,
+      "name": "Hooded Sweatshirt",
+      "category": "Sweatshirts",
+      "price": 29.99,
+      "color": "Gray",
+      "sizes_available": ["M", "L", "XL"],
+      "image": "image_link.jpg"
+    },
+    {
+      "id": 81,
+      "name": "Pleated Midi Skirt",
+      "category": "Skirts",
+      "price": 34.99,
+      "color": "Burgundy",
+      "sizes_available": ["S", "M", "L"],
+      "image": "image_link.jpg"
+    },
+    {
+      "id": 82,
+      "name": "Embroidered Blouse",
+      "category": "Tops",
+      "price": 27.99,
+      "color": "White",
+      "sizes_available": ["M", "L"],
+      "image": "image_link.jpg"
+    },
+    {
+      "id": 83,
+      "name": "Trench Coat",
+      "category": "Coats",
+      "price": 69.99,
+      "color": "Beige",
+      "sizes_available": ["M", "L", "XL"],
+      "image": "image_link.jpg"
+    },
+    {
+      "id": 90,
+      "name": "Cropped Wide-Leg Jeans",
+      "category": "Jeans",
+      "price": 39.99,
+      "color": "Light Blue",
+      "sizes_available": ["S", "M", "L"],
+      "image": "image_link.jpg"
+    },
+    {
+      "id": 91,
+      "name": "Printed Scarf",
+      "category": "Accessories",
+      "price": 14.99,
+      "color": "Multicolor",
+      "sizes_available": ["One Size"],
+      "image": "image_link.jpg"
+    },
+    {
+      "id": 92,
+      "name": "Belted Trench Coat",
+      "category": "Coats",
+      "price": 79.99,
+      "color": "Navy",
+      "sizes_available": ["M", "L"],
+      "image": "image_link.jpg"
+    },
+    {
+      "id": 93,
+      "name": "Knitted Cardigan",
+      "category": "Sweaters",
+      "price": 37.5,
+      "color": "Gray",
+      "sizes_available": ["S", "M", "L"],
+      "image": "image_link.jpg"
+    },
+
+    {
+      "id": 100,
+      "name": "Lace Cocktail Dress",
+      "category": "Dresses",
+      "price": 59.99,
+      "color": "Black",
+      "sizes_available": ["S", "M", "L"],
+      "image": "image_link.jpg"
+    }
+  ]
+}
