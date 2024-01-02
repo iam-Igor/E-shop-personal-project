@@ -1,11 +1,63 @@
-import { useState } from "react";
-import { Col, Container, Row, Form, Button, Modal } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import {
+  Col,
+  Container,
+  Row,
+  Form,
+  Button,
+  Modal,
+  Alert,
+} from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
+  const navigator = useNavigate();
   const [showModal, setShowModal] = useState(false);
+  const [users, setUSers] = useState(null);
+  const [loginError, setLoginError] = useState(false);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const dispatch = useDispatch();
 
   const handleClose = () => setShowModal(false);
   const handleShow = () => setShowModal(true);
+
+  const getAllUsers = () => {
+    fetch("https://fakestoreapi.com/users")
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error("Error in fetching users data");
+        }
+      })
+      .then((users) => {
+        setUSers(users);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const checkCredentials = (email, password) => {
+    for (let i = 0; i < users.length; i++) {
+      if (users[i].email === email && users[i].password === password) {
+        console.log("login ok");
+        dispatch({ type: "SAVE_USER_LOGIN", payload: users[i] });
+        navigator("/");
+        setLoginError(false);
+        return;
+      }
+    }
+    setLoginError(true);
+  };
+
+  useEffect(() => {
+    getAllUsers();
+  }, []);
 
   return (
     <>
@@ -22,9 +74,17 @@ const LoginPage = () => {
             <Row className="flex-column bg-white rounded-4 p-3 my-5 align-items-cente login-form-row">
               <Col>
                 <h3 className="text-center">Sign in</h3>
+                {loginError && (
+                  <Alert variant="danger">Username or password wrong!</Alert>
+                )}
               </Col>
               <Col className="flex-column">
-                <Form>
+                <Form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    checkCredentials(email, password);
+                  }}
+                >
                   <div className="d-flex align-items-center">
                     <i className="bi bi-envelope-at fs-3 me-2"></i>
 
@@ -33,6 +93,9 @@ const LoginPage = () => {
                       placeholder="E-mail"
                       required
                       className="rounded-4"
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                      }}
                     />
                   </div>
                   <div className="d-flex align-items-center">
@@ -43,6 +106,9 @@ const LoginPage = () => {
                       type="password"
                       placeholder="Password"
                       required
+                      onChange={(e) => {
+                        setPassword(e.target.value);
+                      }}
                     />
                   </div>
                   <Form.Check

@@ -2,10 +2,16 @@ import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import SingleCard from "./SingleCard";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useSelector } from "react-redux";
 
 const HomePage = () => {
   const [products, setProducts] = useState(null);
   const navigator = useNavigate();
+  const userData = useSelector((state) => state.content.user);
+
+  console.log(userData);
 
   const goTo = (param) => {
     navigator("/Categories/" + param);
@@ -32,13 +38,43 @@ const HomePage = () => {
 
   useEffect(() => {
     getSuggestedProducts();
+
+    toast("Welcome " + userData.username, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   }, []);
 
   return (
     <Container fluid>
+      {Object.keys(userData).length > 0 && (
+        <>
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+          />
+
+          <ToastContainer />
+        </>
+      )}
+
       <Row>
         <Col
-          className="home-page-main-column align-items-center justify-content-center d-flex"
+          className="home-page-main-column align-items-center justify-content-center d-flex "
           style={{
             backgroundImage:
               "url(https://images.pexels.com/photos/1578997/pexels-photo-1578997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",

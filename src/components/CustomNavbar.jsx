@@ -11,11 +11,15 @@ import {
   DropdownToggle,
   Badge,
 } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const CustomNavbar = () => {
   const location = useLocation();
   const navigator = useNavigate();
+
+  const userData = useSelector((state) => state.content.user);
+  console.log(userData);
 
   const goTo = (param) => {
     navigator("/Categories/" + param);
@@ -93,16 +97,14 @@ const CustomNavbar = () => {
                 as={DropdownToggle}
                 variant="outline-primary"
               >
-                <img
-                  src="https://i.pinimg.com/564x/ff/a0/9a/ffa09aec412db3f54deadf1b3781de2a.jpg"
-                  width="30"
-                  height="30"
-                  className="d-inline-block align-top"
-                  alt="user-img"
-                />
+                <i className="bi bi-person-circle"></i>
               </Navbar.Brand>
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">
+                <Dropdown.Item
+                  onClick={() => {
+                    navigator("/Account/" + userData.id);
+                  }}
+                >
                   <i className="bi bi-person-circle me-1"></i>
                   Account
                 </Dropdown.Item>

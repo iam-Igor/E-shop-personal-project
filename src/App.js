@@ -6,6 +6,7 @@ import LoginPage from "./components/LoginPage";
 import HomePage from "./components/HomePage";
 import ProductDetails from "./components/ProductDetails";
 import Categories from "./components/Categories";
+import AccountSettings from "./components/AccountSettings";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/Product/:productId" element={<ProductDetails />} />
         <Route path="/Categories/:category" element={<Categories />} />
+        <Route path="/Account/:accountId" element={<AccountSettings />} />
       </Routes>
     </BrowserRouter>
   );
