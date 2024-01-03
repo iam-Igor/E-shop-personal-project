@@ -278,3 +278,9 @@ html #root {
     transform: translateX(-8px);
   }
 }
+
+/* CAROUSEL */
+
+.react-multi-carousel-dot-list {
+  opacity: 0;
+}

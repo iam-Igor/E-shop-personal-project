@@ -9,6 +9,7 @@ import Categories from "./components/Categories";
 import AccountSettings from "./components/AccountSettings";
 import CartPage from "./components/CartPage";
 import CustomFooter from "./components/CustomFooter";
+import CarouselTest from "./components/CarouselTest";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/Categories/:category" element={<Categories />} />
         <Route path="/Account/:accountId" element={<AccountSettings />} />
         <Route path="/Cart" element={<CartPage />} />
+        <Route path="/test" element={<CarouselTest />} />
       </Routes>
       <CustomFooter />
     </BrowserRouter>

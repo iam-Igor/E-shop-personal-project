@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSelector } from "react-redux";
+import CarouselTest from "./CarouselTest";
 
 const HomePage = () => {
   const [products, setProducts] = useState(null);
@@ -39,16 +40,18 @@ const HomePage = () => {
   useEffect(() => {
     getSuggestedProducts();
 
-    toast("Welcome " + userData[0].username, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+    if (userData.length < 0) {
+      toast("Welcome " + userData[0].username, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   }, []);
 
   return (
@@ -144,6 +147,9 @@ const HomePage = () => {
             </Card.Body>
           </Card>
         </Col>
+      </Row>
+      <Row className="d-flex py-3 justify-content-center">
+        {products && <CarouselTest items={products} />}
       </Row>
       <Row className="mt-4">
         <h1 className="text-center">Suggested products</h1>
