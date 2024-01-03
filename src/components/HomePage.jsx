@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSelector } from "react-redux";
 import CarouselTest from "./CarouselTest";
+import { Parallax } from "react-scroll-parallax";
 
 const HomePage = () => {
   const [products, setProducts] = useState(null);
@@ -101,58 +102,64 @@ const HomePage = () => {
           </Row>
         </Col>
       </Row>
-      <Row className="mt-4 justify-content-center flex-column flex-md-row">
-        <Col className="col-md-3">
-          <Card
-            onClick={() => {
-              goTo("women's clothing");
-            }}
-          >
-            <Card.Img
-              variant="top"
-              src="https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            />
-            <Card.Body>
-              <Card.Text>Women</Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col className="col-md-3 my-3 my-md-0">
-          <Card
-            onClick={() => {
-              goTo("men's clothing");
-            }}
-          >
-            <Card.Img
-              variant="top"
-              src="https://images.pexels.com/photos/842811/pexels-photo-842811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            />
-            <Card.Body>
-              <Card.Text>Men</Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col className="col-md-3">
-          <Card
-            onClick={() => {
-              goTo("jewelery");
-            }}
-          >
-            <Card.Img
-              variant="top"
-              src="https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            />
-            <Card.Body>
-              <Card.Text>Accessories</Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-      <Row className="d-flex py-3 justify-content-center">
-        {products && <CarouselTest items={products} />}
-      </Row>
+      <Parallax speed={10}>
+        <Row className="mt-2 justify-content-center flex-column flex-md-row">
+          <Col className="col-md-3">
+            <Card
+              onClick={() => {
+                goTo("women's clothing");
+              }}
+            >
+              <Card.Img
+                variant="top"
+                src="https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              />
+              <Card.Body>
+                <Card.Text>Women</Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col className="col-md-3 my-3 my-md-0">
+            <Card
+              onClick={() => {
+                goTo("men's clothing");
+              }}
+            >
+              <Card.Img
+                variant="top"
+                src="https://images.pexels.com/photos/842811/pexels-photo-842811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              />
+              <Card.Body>
+                <Card.Text>Men</Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col className="col-md-3">
+            <Card
+              onClick={() => {
+                goTo("jewelery");
+              }}
+            >
+              <Card.Img
+                variant="top"
+                src="https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              />
+              <Card.Body>
+                <Card.Text>Accessories</Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Parallax>
+      <Parallax speed={10}>
+        <Row className="d-flex py-3 justify-content-center">
+          <h1 className="text-center">Suggested products</h1>
+          {products && <CarouselTest items={products} />}
+        </Row>
+      </Parallax>
+
       <Row className="mt-4">
-        <h1 className="text-center">Suggested products</h1>
+        <h1 className="text-center">You may also like..</h1>
         {products ? (
           <SingleCard items={products} />
         ) : (

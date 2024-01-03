@@ -11,7 +11,7 @@ const SingleCard = ({ items }) => {
     <>
       {items.map((item, index) => {
         return (
-          <Col key={item.id} className="col-6 col-md-3 my-3">
+          <Col key={item.id} className="col-6 col-md-3 my-4">
             <Card className="rounded-4 shadow-bottom  py-3">
               <div className="image-container">
                 <Card.Img
