@@ -69,7 +69,7 @@ const CartPage = () => {
             return (
               <Col
                 key={item.id}
-                className="d-flex align-items-center border border-2 rounded-4 justify-content-between col-md-6 p-2 mb-2 shadow-bottom"
+                className="d-flex align-items-center border border-2 rounded-4 justify-content-between col-md-6  p-2 mb-2 shadow-bottom"
               >
                 <div className="d-flex align-items-center">
                   <img
@@ -83,7 +83,7 @@ const CartPage = () => {
                 <div className="d-flex align-items-center">
                   <p className="m-0">Price: {item.price}$</p>
                   <i
-                    className="bi bi-trash fs-4 pointer ms-2"
+                    className="bi bi-bag-x fs-4 pointer ms-2"
                     onClick={() => {
                       dispatch({ type: "REMOVE_FROM_CART", payload: i });
                     }}
