@@ -1,16 +1,31 @@
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import {
+  Button,
+  Col,
+  Container,
+  Form,
+  Row,
+  Offcanvas,
+  ListGroup,
+} from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import SingleCard from "./SingleCard";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const CartPage = () => {
   const cartData = useSelector((state) => state.content.cart);
+  const userData = useSelector((state) => state.content.user);
+
   const dispatch = useDispatch();
   const [products, setProducts] = useState(null);
   const [promoCode, setPromoCode] = useState("");
   const [sumWithDiscount, setSumWithDioscount] = useState(0);
   const [priceChecking, setPriceChecking] = useState(false);
   const [isPromoCodeValid, setIsPromoCodeValid] = useState(true);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const validPromoCode = "WINTER24";
 
@@ -34,7 +49,7 @@ const CartPage = () => {
     }
   };
 
-  console.log(totalSum);
+  let priceToshow = sumWithDiscount > 0 ? sumWithDiscount.toFixed(2) : totalSum;
 
   const getSuggestedProducts = () => {
     fetch("https://fakestoreapi.com/products")
@@ -64,7 +79,7 @@ const CartPage = () => {
   return (
     <Container fluid className="p-2">
       {cartData.length > 0 ? (
-        <Row className="mt-5 flex-column">
+        <Row className="mt-5 flex-column ms-md-2">
           {cartData.map((item, i) => {
             return (
               <Col
@@ -141,11 +156,8 @@ const CartPage = () => {
                   </Button>
                 )}
               </Form>
-              <p className="mt-3">
-                Total amount:{" "}
-                {sumWithDiscount > 0 ? sumWithDiscount.toFixed(2) : totalSum}$
-              </p>
-              <Button className="rounded-pill">
+              <p className="mt-3">Total amount: {priceToshow}$</p>
+              <Button className="rounded-pill" onClick={handleShow}>
                 <i className="bi bi-credit-card-2-back me-1"></i>
                 Checkout
               </Button>
@@ -160,6 +172,69 @@ const CartPage = () => {
           {products && <SingleCard items={products} />}
         </Row>
       )}
+      <Offcanvas show={show} onHide={handleClose}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Order checkout</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          {userData.length > 0 ? (
+            <Row className="flex-column">
+              <Col>
+                <ListGroup>
+                  <p>Order summary:</p>
+                  {cartData.map((item, i) => {
+                    return (
+                      <ListGroup.Item className="d-flex align-items-center justify-content-between">
+                        <img
+                          src={item.image}
+                          alt="item"
+                          style={{ width: "10%" }}
+                        />{" "}
+                        <p className="m-0">{item.title}</p>
+                        <p className="m-0">{item.price}$</p>
+                      </ListGroup.Item>
+                    );
+                  })}
+                  <p className="mt-2">Total: {priceToshow}$</p>
+                </ListGroup>
+              </Col>
+              <Col>
+                <hr></hr>
+                <p className="text-center">Select payment meyhod:</p>
+                <p>
+                  <i className="bi bi-paypal"></i> Paypal
+                </p>
+                <p>
+                  <i className="bi bi-credit-card"></i> Credit card
+                </p>
+              </Col>
+              <Col>
+                <hr></hr>
+                <p className="text-center">Shipping address info:</p>
+                <Form.Check // prettier-ignore
+                  type="switch"
+                  id="custom-switch"
+                  label="Same address I'm registered with"
+                />
+              </Col>
+              <Col className="text-center">
+                <hr></hr>
+                <Button className="rounded-pill">Order now!</Button>
+              </Col>
+            </Row>
+          ) : (
+            <Row>
+              <Col>
+                <p>
+                  Sorry, you're not logged in, please log in or register
+                  <Link to="/Login"> here. </Link>
+                  <i className="bi bi-emoji-frown"></i>
+                </p>
+              </Col>
+            </Row>
+          )}
+        </Offcanvas.Body>
+      </Offcanvas>
     </Container>
   );
 };

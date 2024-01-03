@@ -39,7 +39,7 @@ const HomePage = () => {
   useEffect(() => {
     getSuggestedProducts();
 
-    toast("Welcome " + userData.username, {
+    toast("Welcome " + userData[0].username, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -53,7 +53,7 @@ const HomePage = () => {
 
   return (
     <Container fluid>
-      {Object.keys(userData).length > 0 && (
+      {userData.length > 0 && (
         <>
           <ToastContainer
             position="top-right"

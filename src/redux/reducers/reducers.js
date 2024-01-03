@@ -1,6 +1,6 @@
 const mainState = {
   content: {
-    user: {},
+    user: [],
     cart: [],
   },
 };
@@ -12,7 +12,7 @@ const mainReducer = (state = mainState, action) => {
         ...state,
         content: {
           ...state.content,
-          user: action.payload,
+          user: [action.payload],
         },
       };
     case "ADD_TO_CART":
