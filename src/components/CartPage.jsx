@@ -1,4 +1,4 @@
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import SingleCard from "./SingleCard";
 import { useEffect, useState } from "react";
@@ -7,10 +7,28 @@ const CartPage = () => {
   const cartData = useSelector((state) => state.content.cart);
   const dispatch = useDispatch();
   const [products, setProducts] = useState(null);
+  const [promoCode, setPromoCode] = useState("");
+  const [sumWithDiscount, setSumWithDioscount] = useState(0);
+  const [priceChecking, setPriceChecking] = useState(false);
 
-  const totalSum = cartData.reduce((acc, curr) => {
+  const validPromoCode = "WINTER24";
+
+  let totalSum = cartData.reduce((acc, curr) => {
     return acc + curr.price;
   }, 0);
+
+  const checkPromoCode = () => {
+    if (promoCode === validPromoCode) {
+      setTimeout(() => {
+        setPriceChecking(true);
+      }, 500);
+      const newSum = totalSum * 0.7;
+      setPriceChecking(false);
+      setSumWithDioscount(newSum);
+    }
+  };
+
+  console.log(totalSum);
 
   const getSuggestedProducts = () => {
     fetch("https://fakestoreapi.com/products")
@@ -69,8 +87,57 @@ const CartPage = () => {
             );
           })}
           <Row>
-            <Col>
-              <p>Total amount: {totalSum}$</p>
+            <Col className="col-md-4 mt-3">
+              <Form
+                className="d-flex"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  checkPromoCode();
+                }}
+              >
+                <Form.Control
+                  type="text"
+                  placeholder="Enter promo code"
+                  value={promoCode}
+                  onChange={(e) => {
+                    setPromoCode(e.target.value);
+                  }}
+                  required
+                />
+                {priceChecking ? (
+                  <div class="success-animation">
+                    <svg
+                      class="checkmark"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 52 52"
+                    >
+                      <circle
+                        class="checkmark__circle"
+                        cx="26"
+                        cy="26"
+                        r="25"
+                        fill="none"
+                      />
+                      <path
+                        class="checkmark__check"
+                        fill="none"
+                        d="M14.1 27.2l7.1 7.2 16.7-16.8"
+                      />
+                    </svg>
+                  </div>
+                ) : (
+                  <Button
+                    className="rounded-pill btn-success ms-2"
+                    type="submit"
+                  >
+                    Verify
+                  </Button>
+                )}
+              </Form>
+              <p className="mt-3">
+                Total amount:{" "}
+                {sumWithDiscount > 0 ? sumWithDiscount.toFixed(2) : totalSum}$
+              </p>
               <Button className="rounded-pill">
                 <i className="bi bi-credit-card-2-back me-1"></i>
                 Checkout

@@ -84,7 +84,7 @@ const HomePage = () => {
         >
           <Row className="flex-column home-page-text">
             <Col>
-              <p className="fw-bold">AUTUMN/WINTER COLLECTION 2023</p>
+              <p className="fw-bold">AUTUMN/WINTER COLLECTION 2024</p>
             </Col>
             <Col>
               <h1>Get up to 30% off</h1>
@@ -92,7 +92,7 @@ const HomePage = () => {
             </Col>
             <Col>
               <Button variant="primary" className="rounded-4">
-                Shop Now
+                ENTER PROMO CODE "WINTER24" IN CHECKOUT
               </Button>
             </Col>
           </Row>
