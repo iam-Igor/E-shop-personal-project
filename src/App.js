@@ -8,6 +8,7 @@ import ProductDetails from "./components/ProductDetails";
 import Categories from "./components/Categories";
 import AccountSettings from "./components/AccountSettings";
 import CartPage from "./components/CartPage";
+import CustomFooter from "./components/CustomFooter";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/Account/:accountId" element={<AccountSettings />} />
         <Route path="/Cart" element={<CartPage />} />
       </Routes>
+      <CustomFooter />
     </BrowserRouter>
   );
 }
