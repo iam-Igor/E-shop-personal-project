@@ -37,7 +37,9 @@ const CustomNavbar = () => {
       }
     >
       <Container fluid>
-        <Navbar.Brand onClick={() => navigator("/")}>My shop</Navbar.Brand>
+        <Navbar.Brand onClick={() => navigator("/")} className="pointer">
+          My shop
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
