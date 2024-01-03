@@ -7,6 +7,7 @@ import HomePage from "./components/HomePage";
 import ProductDetails from "./components/ProductDetails";
 import Categories from "./components/Categories";
 import AccountSettings from "./components/AccountSettings";
+import CartPage from "./components/CartPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/Product/:productId" element={<ProductDetails />} />
         <Route path="/Categories/:category" element={<Categories />} />
         <Route path="/Account/:accountId" element={<AccountSettings />} />
+        <Route path="/Cart" element={<CartPage />} />
       </Routes>
     </BrowserRouter>
   );

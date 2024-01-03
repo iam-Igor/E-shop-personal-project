@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Card, Button, Col } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const SingleCard = ({ items }) => {
   const navigator = useNavigate();
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -24,7 +26,12 @@ const SingleCard = ({ items }) => {
               <Card.Body style={{ height: "160px" }}>
                 <Card.Title className="truncate-text">{item.title}</Card.Title>
                 <Card.Text>{item.price}$</Card.Text>
-                <Button variant="outline-success me-2">
+                <Button
+                  variant="outline-success me-2"
+                  onClick={() => {
+                    dispatch({ type: "ADD_TO_CART", payload: item });
+                  }}
+                >
                   <i className="bi bi-cart-check me-1"></i>
                   Add to cart
                 </Button>

@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 
 const ProductDetails = () => {
   const urlParams = useParams();
   const navigator = useNavigate();
+  const dispatch = useDispatch();
 
   const [singleProduct, setSingleProduct] = useState();
   const [starsArray, setStarsArray] = useState([]);
@@ -87,7 +89,13 @@ const ProductDetails = () => {
                 <i className="bi bi-house me-1"></i>
                 Back home
               </Button>
-              <Button className="rounded-pill" variant="success">
+              <Button
+                className="rounded-pill"
+                variant="success"
+                onClick={() => {
+                  dispatch({ type: "ADD_TO_CART", payload: singleProduct });
+                }}
+              >
                 <i className="bi bi-cart-check me-1"></i>
                 Add to cart
               </Button>

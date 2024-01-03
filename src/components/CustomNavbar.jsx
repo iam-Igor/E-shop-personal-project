@@ -18,6 +18,8 @@ const CustomNavbar = () => {
   const location = useLocation();
   const navigator = useNavigate();
 
+  const cartData = useSelector((state) => state.content.cart);
+
   const userData = useSelector((state) => state.content.user);
   console.log(userData);
 
@@ -127,9 +129,14 @@ const CustomNavbar = () => {
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-            <Button variant="primary">
+            <Button
+              variant="primary"
+              onClick={() => {
+                navigator("/Cart");
+              }}
+            >
               <i className="bi bi-cart-check me-1"></i>{" "}
-              <Badge bg="secondary">9</Badge>
+              <Badge bg="secondary">{cartData.length}</Badge>
               <span className="visually-hidden">unread messages</span>
             </Button>
           </div>
