@@ -6,7 +6,7 @@ const CustomFooter = () => {
   const year = now.getFullYear();
 
   return (
-    <Container className="mt-5">
+    <Container className="mt-auto">
       <Row className="justify-content-center flex-column align-items-center">
         <Col className="col-md-8">
           <ul className="list-unstyled d-flex justify-content-around">
