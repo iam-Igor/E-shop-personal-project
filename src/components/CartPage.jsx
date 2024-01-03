@@ -10,6 +10,7 @@ const CartPage = () => {
   const [promoCode, setPromoCode] = useState("");
   const [sumWithDiscount, setSumWithDioscount] = useState(0);
   const [priceChecking, setPriceChecking] = useState(false);
+  const [isPromoCodeValid, setIsPromoCodeValid] = useState(true);
 
   const validPromoCode = "WINTER24";
 
@@ -25,6 +26,11 @@ const CartPage = () => {
       const newSum = totalSum * 0.7;
       setPriceChecking(false);
       setSumWithDioscount(newSum);
+    } else {
+      setIsPromoCodeValid(false);
+      setTimeout(() => {
+        setIsPromoCodeValid(true);
+      }, 1000);
     }
   };
 
@@ -56,7 +62,7 @@ const CartPage = () => {
   });
 
   return (
-    <Container fluid className="p-4">
+    <Container fluid className="p-2">
       {cartData.length > 0 ? (
         <Row className="mt-5 flex-column">
           {cartData.map((item, i) => {
@@ -96,6 +102,7 @@ const CartPage = () => {
                 }}
               >
                 <Form.Control
+                  className={isPromoCodeValid ? "" : "error"}
                   type="text"
                   placeholder="Enter promo code"
                   value={promoCode}
@@ -105,21 +112,21 @@ const CartPage = () => {
                   required
                 />
                 {priceChecking ? (
-                  <div class="success-animation">
+                  <div className="success-animation">
                     <svg
-                      class="checkmark"
+                      className="checkmark"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 52 52"
                     >
                       <circle
-                        class="checkmark__circle"
+                        className="checkmark__circle"
                         cx="26"
                         cy="26"
                         r="25"
                         fill="none"
                       />
                       <path
-                        class="checkmark__check"
+                        className="checkmark__check"
                         fill="none"
                         d="M14.1 27.2l7.1 7.2 16.7-16.8"
                       />
