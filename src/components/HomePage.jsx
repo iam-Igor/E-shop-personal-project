@@ -78,7 +78,7 @@ const HomePage = () => {
         </>
       )}
 
-      <Row className="mt-2">
+      <Row className="mt-4">
         <Col className="p-0">
           <ParallaxBanner
             layers={[
@@ -106,7 +106,7 @@ const HomePage = () => {
           </ParallaxBanner>
         </Col>
       </Row>
-      <Parallax speed={2}>
+      <Parallax speed={4}>
         <Row className="mt-2 justify-content-center flex-column flex-md-row">
           <Col className="col-md-3">
             <Card
