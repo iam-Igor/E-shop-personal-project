@@ -79,7 +79,7 @@ const HomePage = () => {
       )}
 
       <Row className="mt-2">
-        <Col>
+        <Col className="p-0">
           <ParallaxBanner
             layers={[
               { image: bgImg, speed: -20 },
