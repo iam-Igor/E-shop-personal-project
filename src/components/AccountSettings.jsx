@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Col, Container, Row, Tabs, Tab, Form, Button } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
+import bgImg from "../assets/media/img/stacked-waves-haikei.png";
 
 const AccountSettings = () => {
   const urlParams = useParams();
@@ -34,7 +35,7 @@ const AccountSettings = () => {
 
   return (
     <Container fluid>
-      {Object.keys(userData).length > 0 && urlParams.accountId !== undefined ? (
+      {userData.length > 0 && urlParams.accountId !== undefined ? (
         <Row className="mt-5">
           <Col>
             <Tabs

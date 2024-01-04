@@ -6,7 +6,9 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSelector } from "react-redux";
 import CarouselTest from "./CarouselTest";
-import { Parallax } from "react-scroll-parallax";
+import { Parallax, ParallaxBanner } from "react-scroll-parallax";
+import bgImg from "../assets/media/img/pexels-mikhail-nilov-6836213.jpg";
+import fgImg from "../assets/media/img/pexels-mikhail-nilov-6836213-removebg.png";
 
 const HomePage = () => {
   const [products, setProducts] = useState(null);
@@ -76,33 +78,35 @@ const HomePage = () => {
         </>
       )}
 
-      <Row>
-        <Col
-          className="home-page-main-column align-items-center justify-content-center d-flex "
-          style={{
-            backgroundImage:
-              "url(https://images.pexels.com/photos/1578997/pexels-photo-1578997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
-            backgroundSize: "cover",
-            backgroundPositionY: "20%",
-          }}
-        >
-          <Row className="flex-column home-page-text">
-            <Col>
-              <p className="fw-bold">AUTUMN/WINTER COLLECTION 2024</p>
-            </Col>
-            <Col>
-              <h1>Get up to 30% off</h1>
-              <h1>New arrivals</h1>
-            </Col>
-            <Col>
-              <Button variant="primary" className="rounded-4">
-                ENTER PROMO CODE "WINTER24" IN CHECKOUT
-              </Button>
-            </Col>
-          </Row>
+      <Row className="mt-2">
+        <Col>
+          <ParallaxBanner
+            layers={[
+              { image: bgImg, speed: -20 },
+              { image: fgImg, speed: -20 },
+            ]}
+            className="aspect-[2/1] py-4"
+          >
+            <div className="position-relative inset-0 flex items-center justify-center p-md-5">
+              <Row className="flex-column home-page-text p-5 text-center">
+                <Col>
+                  <p className="fw-bold">AUTUMN/WINTER COLLECTION 2024</p>
+                </Col>
+                <Col>
+                  <h1>Get up to 30% off</h1>
+                  <h1>New arrivals</h1>
+                </Col>
+                <Col>
+                  <Button variant="primary" className="rounded-4">
+                    ENTER PROMO CODE "WINTER24" IN CHECKOUT
+                  </Button>
+                </Col>
+              </Row>
+            </div>
+          </ParallaxBanner>
         </Col>
       </Row>
-      <Parallax speed={10}>
+      <Parallax speed={2}>
         <Row className="mt-2 justify-content-center flex-column flex-md-row">
           <Col className="col-md-3">
             <Card
