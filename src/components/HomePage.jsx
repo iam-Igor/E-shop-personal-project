@@ -58,7 +58,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <Container fluid>
+    <Container fluid style={{ background: "#FBFBFB" }}>
       {userData.length > 0 && (
         <>
           <ToastContainer
@@ -97,9 +97,9 @@ const HomePage = () => {
                   <h1>New arrivals</h1>
                 </Col>
                 <Col>
-                  <Button variant="primary" className="rounded-4">
+                  <p variant="primary" className="rounded-2">
                     ENTER PROMO CODE "WINTER24" IN CHECKOUT
-                  </Button>
+                  </p>
                 </Col>
               </Row>
             </div>
@@ -108,7 +108,7 @@ const HomePage = () => {
       </Row>
       <Parallax speed={4}>
         <Row className="mt-2 justify-content-center flex-column flex-md-row">
-          <Col className="col-md-3">
+          <Col className="col-md-2">
             <Card
               onClick={() => {
                 goTo("women's clothing");
@@ -123,7 +123,7 @@ const HomePage = () => {
               </Card.Body>
             </Card>
           </Col>
-          <Col className="col-md-3 my-3 my-md-0">
+          <Col className="col-md-2 my-3 my-md-0">
             <Card
               onClick={() => {
                 goTo("men's clothing");
@@ -138,7 +138,7 @@ const HomePage = () => {
               </Card.Body>
             </Card>
           </Col>
-          <Col className="col-md-3">
+          <Col className="col-md-2">
             <Card
               onClick={() => {
                 goTo("jewelery");

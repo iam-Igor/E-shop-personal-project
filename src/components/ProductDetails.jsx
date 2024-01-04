@@ -66,7 +66,7 @@ const ProductDetails = () => {
     <>
       <Container>
         {singleProduct ? (
-          <Row className="flex-column flex-md-row border border-2 rounded-4 mt-5 shadow-bottom p-3">
+          <Row className="flex-column flex-md-row border border-2 rounded-4 mt-5  p-3 mb-5">
             <Col className="col-12 col-md-4">
               <img
                 src={singleProduct.image}
