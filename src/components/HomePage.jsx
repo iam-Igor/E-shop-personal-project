@@ -43,7 +43,7 @@ const HomePage = () => {
   useEffect(() => {
     getSuggestedProducts();
 
-    if (userData.length < 0) {
+    if (userData.length > 0) {
       toast("Welcome " + userData[0].username, {
         position: "top-right",
         autoClose: 5000,
