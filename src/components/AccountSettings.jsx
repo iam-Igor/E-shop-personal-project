@@ -9,6 +9,8 @@ const AccountSettings = () => {
 
   const [userData, setUserData] = useState({});
 
+  console.log(userData);
+
   const getUserData = () => {
     fetch("https://fakestoreapi.com/users/" + urlParams.accountId)
       .then((res) => {
@@ -28,14 +30,15 @@ const AccountSettings = () => {
   };
 
   useEffect(() => {
-    if (urlParams.accountId !== undefined) {
+    if (urlParams.accountId !== "undefined") {
       getUserData();
     }
   }, []);
 
   return (
     <Container fluid>
-      {userData.length > 0 && urlParams.accountId !== undefined ? (
+      {Object.keys(userData).length > 0 &&
+      urlParams.accountId !== "undefined" ? (
         <Row className="mt-5">
           <Col>
             <Tabs
