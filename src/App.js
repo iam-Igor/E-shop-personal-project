@@ -11,6 +11,7 @@ import CartPage from "./components/CartPage";
 import CustomFooter from "./components/CustomFooter";
 import CarouselTest from "./components/CarouselTest";
 import { ParallaxProvider } from "react-scroll-parallax";
+import NotFound from "./components/Notfound";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/Categories/:category" element={<Categories />} />
           <Route path="/Account/:accountId" element={<AccountSettings />} />
           <Route path="/Cart" element={<CartPage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <CustomFooter />
       </BrowserRouter>
